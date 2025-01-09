@@ -1,6 +1,7 @@
 import express from 'express';
-import { manageSubscription } from '../controllers/subscribeController';
-import { sendMailController } from '../controllers/mailController';
+import { upload } from '../config/multerConfig.js'
+import { manageSubscription } from '../controllers/subscribeController.js';
+import { sendMailController } from '../controllers/mailController.js';
 
 const router = express.Router();
 

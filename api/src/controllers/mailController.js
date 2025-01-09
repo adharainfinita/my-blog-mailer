@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
-import { readFileContent, deleteFile } from '../utils/fileUtils';
-import { sendEmail } from '../services/mailService';
+import { readFileContent, deleteFile } from '../utils/fileUtils.js';
+import { sendEmail } from '../services/mailService.js';
 import { DB_PATH } from '../utils/constants.js';
 
 export const sendMailController = async (req, res) => {

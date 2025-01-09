@@ -1,4 +1,4 @@
-import transporter from '../config/mailConfig';
+import transporter from '../config/mailConfig.js';
 
 export const sendEmail = (to, subject, htmlContent, attachments = []) => {
   const mailOptions = {
