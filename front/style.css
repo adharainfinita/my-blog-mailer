@@ -1,0 +1,93 @@
+/* Fondo general con color pastel suave y algo de transparencia */
+body {
+  font-family: 'Arial', sans-serif;
+  background: rgba(255, 239, 228, 0.8); /* Un color pastel claro con algo de transparencia */
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Estilo del título principal */
+h1 {
+  font-size: 3rem;
+  color: #FF6F61; /* Color coral pastel */
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.1); /* Sombra sutil para darle un toque moderno */
+  margin: 20px 0;
+  letter-spacing: 1px;
+}
+
+/* Subtítulo con tipografía elegante */
+h3 {
+  font-size: 1.5rem;
+  color: #D1A1D4; /* Lavanda pastel */
+  margin: 10px 0;
+  font-weight: 400;
+}
+
+/* Frase de motivación con un toque de transparencia */
+h4 {
+  font-size: 1.2rem;
+  color: #A4C6E2; /* Azul pastel */
+  margin: 15px 0;
+  font-weight: 300;
+  opacity: 0.8; /* Levemente transparente */
+}
+
+/* Estilo del campo de entrada de correo */
+input[type="email"] {
+  padding: 12px 20px;
+  font-size: 1rem;
+  border-radius: 25px;
+  border: 2px solid #FFB6C1; /* Rosa pastel claro */
+  background: rgba(255, 255, 255, 0.7); /* Fondo blanco con transparencia */
+  width: 250px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+input[type="email"]:focus {
+  border-color: #FF6F61; /* Cambio de color al enfocarse */
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 0 10px rgba(255, 111, 97, 0.5); /* Efecto de sombra sutil */
+}
+
+/* Estilo del botón */
+button {
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  color: white;
+  background-color: #FF6F61; /* Color coral pastel */
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #FF4A3B; /* Cambio de color en hover */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil para el efecto de hover */
+}
+
+/* Estilo de los botones y campos dentro de un contenedor centralizado */
+div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Respuesta al hover sobre todo el contenedor */
+div:hover {
+  transform: scale(1.02); /* Efecto de agrandamiento suave */
+}
