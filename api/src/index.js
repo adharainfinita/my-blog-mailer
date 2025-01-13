@@ -2,18 +2,16 @@
 import express from 'express';
 import morgan from 'morgan';
 import path from 'path';
-import mailRoutes from './routes/mailRoutes.js';
-import { upload } from './config/multerConfig.js';  // Importa la configuración de multer desde otro archivo
+import mailRoutes from './routes/mailRoutes.js'; // Importa tus rutas definidas en mailRoutes.js
 
 const app = express();
+
+// Middleware para manejo de JSON y logs
 app.use(express.json());
-app.use(morgan("dev"));
+app.use(morgan('dev'));
 
-// Usar las rutas definidas
-app.use(mailRoutes);
+// Rutas definidas
+app.use('/api', mailRoutes);
 
-// Iniciar servidor
-const PORT = 3000;
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
+// Exportar el handler para Vercel
+export default app;

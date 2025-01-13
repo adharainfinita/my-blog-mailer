@@ -1,14 +1,16 @@
 import express from 'express';
-import { upload } from '../config/multerConfig.js'
+import { upload } from '../config/multerConfig.js';
 import { manageSubscription } from '../controllers/subscribeController.js';
 import { sendMailController } from '../controllers/mailController.js';
 
-const router = express.Router();
+const app = express();
+app.use(express.json());
 
 // Ruta para gestionar suscripciones
-router.post('/subscribe', manageSubscription);
+app.post('/subscribe', manageSubscription);
 
 // Ruta para recibir archivos y enviar correos
-router.post('/send-mails', upload.single('file'), sendMailController);
+app.post('/send-mails', upload.single('file'), sendMailController);
 
-export default router;
+// Exporta el handler para Vercel
+export default app;
