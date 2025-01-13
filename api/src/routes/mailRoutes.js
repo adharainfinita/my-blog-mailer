@@ -1,16 +1,21 @@
+// src/index.js
 import express from 'express';
-import { upload } from '../config/multerConfig.js';
-import { manageSubscription } from '../controllers/subscribeController.js';
-import { sendMailController } from '../controllers/mailController.js';
+import morgan from 'morgan';
+import mailRoutes from './routes/mailRoutes.js'; // Importa tus rutas definidas en mailRoutes.js
 
 const app = express();
+
+// Middleware para manejo de JSON y logs
 app.use(express.json());
+app.use(morgan('dev'));
 
-// Ruta para gestionar suscripciones
-app.post('/subscribe', manageSubscription);
+// Ruta raíz para verificar que la app está funcionando
+app.get('/', (req, res) => {
+  res.send('La aplicación está funcionando correctamente.');
+});
 
-// Ruta para recibir archivos y enviar correos
-app.post('/send-mails', upload.single('file'), sendMailController);
+// Rutas definidas
+app.use('/api', mailRoutes);
 
-// Exporta el handler para Vercel
+// Exportar el handler para Vercel
 export default app;
