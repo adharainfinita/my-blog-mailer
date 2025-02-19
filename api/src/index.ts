@@ -1,7 +1,7 @@
 import express, { Request, Response } from "express";
 import morgan from "morgan";
 import mailRoutes from "./routes/mailRoutes.js";
-import cors from 'cors';
+import cors from "cors";
 
 process.loadEnvFile();
 
@@ -12,14 +12,10 @@ app.use(morgan("dev"));
 
 // Ruta principal
 app.get("/", (req: Request, res: Response) => {
-  res.send("🚀 API funcionando correctamente!");
+  res.send("🚀 API funcionando correctamente en Vercel!");
 });
 
 // Usar las rutas definidas
-app.use(mailRoutes);
+app.use("/api", mailRoutes); // 👈 Asegúrate de que las rutas están bajo un prefijo
 
-// Iniciar servidor
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
+export default app; // 👈 Exporta app para que Vercel lo maneje
