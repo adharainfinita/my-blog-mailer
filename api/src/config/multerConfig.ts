@@ -6,8 +6,9 @@ export const upload = multer({
   fileFilter: (req, file, cb) => {
     const allowedMimes = ['text/plain', 'application/pdf'];
     if (!allowedMimes.includes(file.mimetype)) {
-      return cb(new Error('Invalid file type'), false);
+      return cb(new Error('Invalid file type') as unknown as null, false);
     }
     cb(null, true);
   },
 });
+
