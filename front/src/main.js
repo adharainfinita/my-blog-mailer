@@ -10,7 +10,7 @@ document.querySelector('button').addEventListener('click', async () => {
   }
 
   try {
-      const response = await fetch(`${baseUrl}/subscribe`, {
+      const response = await fetch(`${baseUrl}/api/subscribe`, {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',
