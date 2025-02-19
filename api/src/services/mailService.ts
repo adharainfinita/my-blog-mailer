@@ -1,25 +1,20 @@
-import transporter from "../config/mailConfig.js";
 import nodemailer from "nodemailer";
 
-// Definir el tipo para los adjuntos del correo
-interface Attachment {
-  filename: string;
-  path: string;
-}
+export const sendEmail = async (to: string, subject: string, text: string, attachments?: any) => {
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
+    },
+  });
 
-// Definir los parámetros que acepta la función `sendEmail`
-export const sendEmail = async (
-  to: string | string[], // Puede ser un solo destinatario o múltiples
-  subject: string,
-  htmlContent: string,
-  attachments: Attachment[] = []
-): Promise<void> => {
-  const mailOptions: nodemailer.SendMailOptions = {
-    from: process.env.MAIL,
+  const mailOptions = {
+    from: process.env.EMAIL_USER,
     to,
     subject,
-    html: htmlContent,
-    attachments,
+    text,
+    attachments, // Aquí ahora aceptamos archivos en memoria
   };
 
   await transporter.sendMail(mailOptions);
