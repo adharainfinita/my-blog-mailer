@@ -1,4 +1,5 @@
-// script.js
+const baseUrl = import.meta.env.VITE_BASE_URL;
+
 document.querySelector('button').addEventListener('click', async () => {
   const emailInput = document.querySelector('#email');
   const email = emailInput.value.trim();
@@ -9,7 +10,7 @@ document.querySelector('button').addEventListener('click', async () => {
   }
 
   try {
-      const response = await fetch('http://localhost:3000/subscribe', {
+      const response = await fetch(`${baseUrl}/subscribe`, {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',
