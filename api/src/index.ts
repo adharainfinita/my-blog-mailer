@@ -3,12 +3,15 @@ import morgan from "morgan";
 import mailRoutes from "./routes/mailRoutes.js";
 import cors from "cors";
 
+
 process.loadEnvFile();
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 app.use(morgan("dev"));
+
+
 
 // Ruta principal
 app.get("/", (req: Request, res: Response) => {
