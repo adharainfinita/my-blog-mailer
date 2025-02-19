@@ -4,7 +4,6 @@ import mailRoutes from "./routes/mailRoutes.js";
 import cors from "cors";
 
 
-process.loadEnvFile();
 
 const app = express();
 app.use(express.json());
