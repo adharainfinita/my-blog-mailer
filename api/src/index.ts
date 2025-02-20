@@ -2,8 +2,9 @@ import express, { Request, Response } from "express";
 import morgan from "morgan";
 import mailRoutes from "./routes/mailRoutes.js";
 import cors from "cors";
+import { connectDB } from "./config/db.js";
 
-
+connectDB();
 
 const app = express();
 app.use(express.json());
